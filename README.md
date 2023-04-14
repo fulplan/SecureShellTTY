@@ -1,7 +1,4 @@
 # SecureShellTTY
-SecureShellTTY is an interactive and secure terminal tty tool that allows users to connect to a remote server using SSH. It supports basic operations, customizable commands, and netcut functionality.
-
----
 
 
 SecureShellTTY is an interactive and secure terminal tool that allows users to connect to a remote server using SSH. It uses the Paramiko library to create secure connections and supports basic operations such as executing commands on the remote server, downloading/uploading files, and blocking network traffic between two IP addresses. It also provides customizable command functionality and can be used in both client and server modes.
