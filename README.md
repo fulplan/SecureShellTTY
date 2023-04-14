@@ -3,9 +3,10 @@ SecureShellTTY is an interactive and secure terminal tty tool that allows users 
 
 ---
 
-## Interactive Terminal TTY - README
 
-This is an interactive terminal tty (TerminalTTY) that uses Paramiko to create secure connections between the client and server. The NetCut class is used to block network traffic between two IP addresses, and the add_netcut_command() method can be used to add a custom command to start or stop the netcut functionality.
+SecureShellTTY is an interactive and secure terminal tool that allows users to connect to a remote server using SSH. It uses the Paramiko library to create secure connections and supports basic operations such as executing commands on the remote server, downloading/uploading files, and blocking network traffic between two IP addresses. It also provides customizable command functionality and can be used in both client and server modes.
+
+---
 
 > ### Requirements :
 
@@ -14,17 +15,56 @@ This is an interactive terminal tty (TerminalTTY) that uses Paramiko to create s
 >  - cryptography
 > - prompt_toolkit
 
+---
 
 
+> Installation
 
+To install SecureShellTTY, clone the repository to your local machine:
 
+`
+$ git clone https://github.com/your_username/secureshelltty.git
+`
+
+You can then install the required dependencies using pip:
+
+`
+$ pip install -r requirements.txt
+`
+
+> - Usage
+
+To start a new interactive terminal session, first import the SecureShellTTY class:
+
+`
+from secureshelltty import SecureShellTTY
+`
+
+You can then create a new SecureShellTTY object:
+
+`
+tty = SecureShellTTY()
+`
+
+If you want to connect to a remote server instead of running the terminal locally, specify the target IP address and port number when creating the SecureShellTTY object:
+
+`
+tty = SecureShellTTY(target_ip="192.168.1.100", target_port=22)
+`
+
+When running in client mode, the run() method will connect to the target server and start listening for user input. You can type any command supported by the remote shell, and it will be executed on the remote server. If you want to run a custom command that you have added to the terminal tty, simply enter the name of the command followed by any arguments:
+
+```
+> mycmd arg1 arg2
+This is my custom command with args: ['arg1', 'arg2']
+```
 
 # How to use
 
 To start a new interactive terminal session, first create a TerminalTTY object:
 
 `
-tty = TerminalTTY()
+tty = SecureShellTTY()
 `
 
 You can then add custom commands to the terminal tty using the add_command() method:
@@ -152,3 +192,6 @@ To stop the netcut functionality, enter the netcut command followed by stop:
 NetCut stopped
 ```
 
+## Custom Commands
+
+You can add custom commands to SecureShellTTY by using the add_command() method. Here's an example:
