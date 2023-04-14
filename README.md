@@ -192,6 +192,49 @@ To stop the netcut functionality, enter the netcut command followed by stop:
 NetCut stopped
 ```
 
-## Custom Commands
+Custom Commands
 
 You can add custom commands to SecureShellTTY by using the add_command() method. Here's an example:
+
+```
+def my_custom_command(args):
+    print(f"This is my custom command with args: {args}")
+
+tty.add_command("mycmd", my_custom_command)
+```
+
+You can then run your custom command in the terminal:
+
+```
+> mycmd arg1 arg2
+```
+This is my custom command with args: ['arg1', 'arg2']
+
+
+> ## NetCut Functionality
+
+You can add the netcut functionality to SecureShellTTY by using the add_netcut_command() method. Here's an example:
+
+`
+tty.add_netcut_command()
+`
+
+You can then run the netcut command in the terminal to block network traffic between two IP addresses:
+
+```
+> netcut start 192.168.1.100
+NetCut started
+
+> netcut stop
+NetCut stopped
+```
+
+
+
+Authors and Contributors
+
+SecureShellTTY was created by FulPlan. Contributions are welcome and appreciated! If you would like to contribute, please follow the guidelines in the CONTRIBUTING.md file.
+
+> License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
